@@ -146,7 +146,6 @@ function AddMagic() {
           </button>
         </div>
       )}
-      <h1>Add Magic</h1>
     </div>
   );
 }
