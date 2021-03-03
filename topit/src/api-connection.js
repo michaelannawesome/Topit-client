@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "https://rocky-caverns-41537.herokuapp.com/api/magic",
   headers: {
     "Content-type": "application/json",
   },

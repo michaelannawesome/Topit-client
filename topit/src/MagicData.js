@@ -1,28 +1,32 @@
-import http from "./api-connection";
+/* eslint-disable import/no-anonymous-default-export */
+import https from "./api-connection";
 
 const getAll = () => {
-  //gets all data
-  return http.get("/magic");
+  return https.get("/tutorials");
 };
-//gets element by id
+
 const get = (id) => {
-  return http.get(`/magic/${id}`);
+  return https.get(`/tutorials/${id}`);
 };
-//create a new trick
+
 const create = (data) => {
-  return http.post("/magic", data);
+  return https.post("/tutorials", data);
 };
-//update an existing trick
+
 const update = (id, data) => {
-  return http.put(`/magic/${id}`, data);
+  return https.put(`/tutorials/${id}`, data);
 };
-//delete a listing
+
 const remove = (id) => {
-  return http.delete(`magic/${id}`);
+  return https.delete(`/tutorials/${id}`);
 };
-//search by title
+
+const removeAll = () => {
+  return https.delete(`/tutorials`);
+};
+
 const findByTitle = (title) => {
-  return http.get(`/magic?title=${title}`);
+  return https.get(`/tutorials?title=${title}`);
 };
 
 export default {
@@ -31,5 +35,6 @@ export default {
   create,
   update,
   remove,
+  removeAll,
   findByTitle,
 };

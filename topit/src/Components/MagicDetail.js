@@ -1,69 +1,107 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import MagicData from "../MagicData";
 import { Link } from "react-router-dom";
+import SearchContext from "./SearchContext";
+import Axios from "axios";
 
 function MagicDetail() {
   const [magic, setMagic] = useState([]);
   const [currentMagic, setCurrentMagic] = useState(null);
-  const [currentID, setCurrentID] = useState(-1);
-  const [searchTitle, setSearchTitle] = useState("");
+  //   const [currentID, setCurrentID] = useState(-1);
+  //   const [searchTitle, setSearchTitle] = useState("");
+  //***NEW CODE */
+  const [searchString, setSearchString] = useState("");
+  const { setSearchResults, setSearchComplete } = useContext(SearchContext);
+
+  const axios = require("axios");
+  const url = "https://rocky-caverns-41537.herokuapp.com";
+  function getResults(searchString) {
+    const result = axios.get(`${url}/api/magic/${searchString}`);
+    return result;
+  }
+  ///////*****^^^^^^^^^^^^^^^^^^^^^^ */
+  //   useEffect(() => {
+  //     grabMagic();
+  //   }, []);
+
+  //   const onChangeSearch = (e) => {
+  //     const searchTitle = e.target.value;
+  //     setSearchTitle(searchTitle);
+  //   };
+
+  ////***NEW CODE */
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSearchString(event.target.value);
+    getResults(searchString).then((result) => {
+      setSearchResults(result.data);
+      setSearchComplete(true);
+    });
+  };
+
+  const handleChange = (event) => {
+    setSearchString(event.target.value);
+  };
+
+  const grabMagic = async () => {
+    const { data } = await Axios.get(`${url}/api/magic/`);
+    const magic = data;
+    setMagic(magic);
+    console.log(magic);
+  };
 
   useEffect(() => {
     grabMagic();
   }, []);
 
-  const onChangeSearch = (ele) => {
-    const searchTitle = ele.target.value;
-    setSearchTitle(searchTitle);
-  };
-
-  const grabMagic = () => {
-    MagicData.getAll()
-      .then((res) => {
-        setMagic(res.data);
-        console.log(res.data);
-      })
-      .catch((ele) => {
-        console.log(ele);
-      });
-  };
-
-  const clearList = () => {
-    grabMagic();
-    setCurrentMagic(null);
-    setCurrentID(-1);
-  };
+  //Getting all Data --Old
+  //   const grabMagic = () => {
+  //     MagicData.getAll()
+  //       .then((response) => {
+  //         setMagic(response.data);
+  //         console.log(response.data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   };
 
   const workingMagic = (magic, id) => {
     setCurrentMagic(magic);
-    setCurrentID(id);
+    // setCurrentID(id);
   };
 
-  const grabTitle = () => {
-    MagicData.grabTitle(searchTitle)
-      .then((res) => {
-        setMagic(res.data);
-        console.log(res.data);
-      })
-      .catch((ele) => {
-        console.log(ele);
-      });
-  };
+  //   const findByTitle = () => {
+  //     MagicData.findByTitle(searchTitle)
+  //       .then((response) => {
+  //         setMagic(response.data);
+  //         console.log(response.data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   };
 
   return (
     <div className="detail">
       <div className="form">
-        <input
-          type="text"
-          className="input"
-          placeholder="Retrieve Your Knowledge"
-          value={searchTitle}
-          onChange={onChangeSearch}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="input"
+            placeholder="Retrieve Your Knowledge"
+            onChange={handleChange}
+            required
+            //   value={searchTitle}
+            //   onChange={onChangeSearch}
+          />
 
-        <button className="search-butt" type="button" onClick={grabTitle}>
-          Seek
-        </button>
+          {/* <button className="search-butt" type="button" onClick={findByTitle}> */}
+          <button className="search-butt" type="button">
+            Seek
+          </button>
+        </form>
       </div>
 
       <div className="detail">
@@ -73,8 +111,8 @@ function MagicDetail() {
           {magic &&
             magic.map((magic, id) => (
               <li
-                className={"list-item " + (id === currentID ? "active" : "")}
-                onClick={() => setCurrentMagic(magic, id)}
+                className="list-item "
+                onClick={() => workingMagic(magic, id)}
                 key={id}
               >
                 {magic.title}
