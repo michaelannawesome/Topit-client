@@ -20,7 +20,7 @@ function AddMagic() {
     setMagic({ ...magic, [name]: value });
   };
   const saveMagic = () => {
-    let data = {
+    var data = {
       title: magic.title,
       source: magic.source,
       props: magic.props,
@@ -45,8 +45,8 @@ function AddMagic() {
         setSubmit(true);
         console.log(res.data);
       })
-      .catch((ele) => {
-        console.log(ele);
+      .catch((e) => {
+        console.log(e);
       });
   };
   const newMagic = () => {
@@ -57,7 +57,7 @@ function AddMagic() {
     <div className="submit">
       {submit ? (
         <div>
-          <h5>Sim Sala Bim</h5>
+          <h5>Sim Sala Bim, it is added!</h5>
           <button className="addButt" onClick={newMagic}>
             Ta-Add-A
           </button>

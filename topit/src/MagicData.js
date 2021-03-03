@@ -1,32 +1,32 @@
 /* eslint-disable import/no-anonymous-default-export */
-import https from "./api-connection";
+import http from "./api-connection";
 
 const getAll = () => {
-  return https.get("/tutorials");
+  return http.get("/magic");
 };
 
 const get = (id) => {
-  return https.get(`/tutorials/${id}`);
+  return http.get(`/magic/${id}`);
 };
 
 const create = (data) => {
-  return https.post("/tutorials", data);
+  return http.post("/magic", data);
 };
 
 const update = (id, data) => {
-  return https.put(`/tutorials/${id}`, data);
+  return http.put(`/magic/${id}`, data);
 };
 
 const remove = (id) => {
-  return https.delete(`/tutorials/${id}`);
+  return http.delete(`/magic/${id}`);
 };
 
 const removeAll = () => {
-  return https.delete(`/tutorials`);
+  return http.delete(`/magic`);
 };
 
 const findByTitle = (title) => {
-  return https.get(`/tutorials?title=${title}`);
+  return http.get(`/magic?title=${title}`);
 };
 
 export default {

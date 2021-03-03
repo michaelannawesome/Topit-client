@@ -21,8 +21,8 @@ function Magic(props) {
         setCurrentMagic(res.data);
         console.log(res.data);
       })
-      .catch((ele) => {
-        console.log(ele);
+      .catch((e) => {
+        console.log(e);
       });
   };
 
@@ -41,8 +41,8 @@ function Magic(props) {
         console.log(res.data);
         setStatus("Magic has been updated!");
       })
-      .catch((ele) => {
-        console.log(ele);
+      .catch((e) => {
+        console.log(e);
       });
   };
 
@@ -52,8 +52,8 @@ function Magic(props) {
         console.log(res.data);
         props.history.push("/magic");
       })
-      .catch((ele) => {
-        console.log(ele);
+      .catch((e) => {
+        console.log(e);
       });
   };
   return (
