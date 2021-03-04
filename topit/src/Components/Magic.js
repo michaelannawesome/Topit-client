@@ -141,11 +141,11 @@ function Magic(props) {
             </div>
           </form>
 
-          <button className="deleteBut" onClick={deleteMagic}>
+          <button className="btn" onClick={deleteMagic}>
             Vanish
           </button>
 
-          <button type="submit" className="updateBut" onClick={updateMagic}>
+          <button type="submit" className="btn" onClick={updateMagic}>
             Update
           </button>
           <p>{status}</p>

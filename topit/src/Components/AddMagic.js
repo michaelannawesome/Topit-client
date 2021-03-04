@@ -70,6 +70,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="title"
+              cols="30"
+              rows="1"
               value={magic.title}
               onChange={handleChange}
               name="title"
@@ -81,6 +83,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="source"
+              cols="30"
+              rows="1"
               value={magic.source}
               onChange={handleChange}
               name="source"
@@ -92,6 +96,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="props"
+              cols="30"
+              rows="1"
               value={magic.props}
               onChange={handleChange}
               name="props"
@@ -103,6 +109,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="description"
+              cols="30"
+              rows="1"
               value={magic.description}
               onChange={handleChange}
               name="description"
@@ -114,6 +122,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="category"
+              cols="30"
+              rows="1"
               value={magic.category}
               onChange={handleChange}
               name="category"
@@ -125,6 +135,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="video_url"
+              cols="30"
+              rows="1"
               value={magic.video_url}
               onChange={handleChange}
               name="video_url"
@@ -136,6 +148,8 @@ function AddMagic() {
               type="text"
               className="input"
               id="owner"
+              cols="30"
+              rows="1"
               value={magic.owner}
               onChange={handleChange}
               name="owner"

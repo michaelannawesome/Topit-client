@@ -21,10 +21,6 @@ const remove = (id) => {
   return http.delete(`/magic/${id}`);
 };
 
-const removeAll = () => {
-  return http.delete(`/magic`);
-};
-
 const findByTitle = (title) => {
   return http.get(`/magic?title=${title}`);
 };
@@ -35,6 +31,6 @@ export default {
   create,
   update,
   remove,
-  removeAll,
+
   findByTitle,
 };

@@ -28,27 +28,10 @@ const MagicDetail = () => {
       });
   };
 
-  // const refreshList = () => {
-  //   retrieveTutorials();
-  //   setCurrentTutorial(null);
-  //   setCurrentIndex(-1);
-  // };
-
   const setActiveMagic = (magic, index) => {
     setCurrentMagic(magic);
     setCurrentIndex(index);
   };
-
-  // const removeAllTutorials = () => {
-  //   TutorialDataService.removeAll()
-  //     .then(response => {
-  //       console.log(response.data);
-  //       refreshList();
-  //     })
-  //     .catch(e => {
-  //       console.log(e);
-  //     });
-  // };
 
   const findByTitle = () => {
     MagicData.findByTitle(searchTitle)
@@ -62,16 +45,14 @@ const MagicDetail = () => {
   };
 
   return (
-    <div className="detail">
-      <div className="form">
+    <div className="magic-detail-container">
+      <div className="search-container">
         <input
           type="text"
           className="input"
           placeholder="Retrieve Your Knowledge"
           onChange={onChangeSearchTitle}
           required
-          //   value={searchTitle}
-          //   onChange={onChangeSearch}
         />
 
         <button className="search-butt" type="button" onClick={findByTitle}>
@@ -80,7 +61,7 @@ const MagicDetail = () => {
       </div>
 
       <div className="detail">
-        <h3>Your Secrets</h3>
+        <h3>ABARACADATABASE</h3>
 
         <ul className="list-group">
           {magic &&
@@ -95,7 +76,7 @@ const MagicDetail = () => {
             ))}
         </ul>
       </div>
-      <div className="col-md-6">
+      <div className="current">
         {currentMagic ? (
           <div>
             <h3>Magic</h3>

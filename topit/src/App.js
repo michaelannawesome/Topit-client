@@ -7,26 +7,17 @@ import AddMagic from "./Components/AddMagic";
 import MagicDetail from "./Components/MagicDetail";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Welcome from "./Welcome";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <nav className="nav">
-        <li className="list-item">
-          <Link to={"/magic"} className="navlink">
-            ABARACADATABASE
-          </Link>
-        </li>
-        <li className="list-item">
-          <Link to={"/add"} className="navlink">
-            TA-ADD-A
-          </Link>
-        </li>
-      </nav>
-      <div className="route-container">
+
+      <div className="router-container">
         <Switch>
-          <Route exact path={["/", "/magic"]} component={MagicDetail} />
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/magic" component={MagicDetail} />
           <Route exact path="/add" component={AddMagic} />
           <Route path="/magic/:id" component={Magic} />
         </Switch>
