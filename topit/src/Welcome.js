@@ -17,14 +17,14 @@ function Welcome(props) {
     <div>
       <div className="landing">
         {/* <p>
-          In an effort to keep the astonishment in magic, please only enter if
-          you intend to keep the secrets.
+          
         </p> */}
 
         {displayLinks === false && (
-          <div className="middle">
-            <button onClick={showLinks} className="btn btn1">
-              OPEN SESAME
+          <div className="container">
+            <button onClick={showLinks} className="animated-word">
+              In an effort to keep the astonishment in magic, please only enter
+              if you intend to keep the secrets. OPEN SESAME
             </button>
           </div>
         )}

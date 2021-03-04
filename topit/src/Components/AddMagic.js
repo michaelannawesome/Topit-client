@@ -155,7 +155,7 @@ function AddMagic() {
               name="owner"
             />
           </div>
-          <button onClick={saveMagic} className="addButt">
+          <button onClick={saveMagic} className="btn">
             Sim Sala Mit
           </button>
         </div>

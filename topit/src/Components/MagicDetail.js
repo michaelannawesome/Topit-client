@@ -108,10 +108,7 @@ const MagicDetail = () => {
             </Link>
           </div>
         ) : (
-          <div>
-            <br />
-            <p>Envoke...</p>
-          </div>
+          <div></div>
         )}
       </div>
     </div>

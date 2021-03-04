@@ -151,10 +151,7 @@ function Magic(props) {
           <p>{status}</p>
         </div>
       ) : (
-        <div>
-          <br />
-          <p>Envoke...</p>
-        </div>
+        <div></div>
       )}
     </div>
   );
